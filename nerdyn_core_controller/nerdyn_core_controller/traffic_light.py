@@ -87,8 +87,8 @@ class TrafficLightDetector(Node):
             frame_gray1 = frame_gray / 255.0
             tres = frame_gray1 > 0.5
             wb_frame = tres.astype(np.uint8)*255
-            cv2.imshow("camera",frame[100:height//3+100,2*width//4:3*width//4])
-            cv2.waitKey(1)
+            # cv2.imshow("camera",frame[100:height//3+100,2*width//4:3*width//4])
+            # cv2.waitKey(1)
             self.get_logger().info(str(self.stage))
 
             wb_frame = wb_frame[:,(width//5) +30:(4*width//5)-50]
@@ -432,7 +432,7 @@ class TrafficLightDetector(Node):
                 time.sleep(0.1)
                 go.angular.z = -self.sign * 1.0
                 self.publisher.publish(go)
-                time.sleep(0.5)
+                time.sleep(0.9)
                 
                 if self.sign == -1:
                     line_dir = "TURNRIGHT1" 
@@ -464,7 +464,7 @@ class TrafficLightDetector(Node):
                 time.sleep(0.1)
                 go.angular.z = -self.sign * 1.0
                 self.publisher.publish(go)
-                time.sleep(0.5)
+                time.sleep(0.9)
                 
                 if self.sign == -1:
                     line_dir = "TURNRIGHT1" 
